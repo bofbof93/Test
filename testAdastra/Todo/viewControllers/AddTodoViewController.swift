@@ -197,7 +197,18 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
         return -1
     }
     @IBAction func deleteAction(_ sender: Any) {
+        
         self.accessTodo.deleteTodo(objectId: objectID)
+       
+        
+        do {
+            try self.getContext().save()
+            print("deleted Todo!")
+            
+            
+        } catch let error as NSError  {
+            print(error)
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
