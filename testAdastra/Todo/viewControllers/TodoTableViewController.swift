@@ -50,7 +50,7 @@ class TodoTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
       
-       // let entityTodo = NSEntityDescription.entity(forEntityName: "Todo", in: self.getContext())
+       
        
         
         
@@ -62,13 +62,13 @@ class TodoTableViewController: UITableViewController {
         self.listTodoDeleted.removeAll()
         
         self.listTodo = accessTodo.getAllTodos()
-        print(listTodo.count)
+        
         var i = 0
         for todo in listTodo {
-            print(i)
+           
             if(todo.isdeleted == "true"){
                 self.listTodoDeleted.append(todo)
-                print(i)
+              
                 self.listTodo.remove(at: i)
             }else{
             i = i+1
@@ -133,9 +133,10 @@ extension TodoTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        var view : UIView = UIView()
 
-        if(self.listTodo.count != 0 && self.listTodoDeleted.count != 0){
-           
-  
+       
+        if(self.listTodoDeleted.count == 0 && self.listTodo.count == 0){
+            return view
+        }
             
             view = UIView(frame: CGRect(x:0,y:0,width:tableView.frame.size.width,height:18))
             let label : UILabel = UILabel(frame : CGRect(x:10, y:5 , width:tableView.frame.size.width ,height: 18))
@@ -162,7 +163,7 @@ extension TodoTableViewController {
         }
             label.text = string
             view.addSubview(label)
-        }
+        
         
         
        
@@ -248,16 +249,14 @@ extension TodoTableViewController {
             tableView.reloadData()
         }else{
             let index = sender.tag-200
-            print(index)
+            
             self.accessTodo.deleteTodo(todo: self.listTodoDeleted[index])
             self.listTodoDeleted.remove(at: index)
         }
         
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(cellHeights.count)
-        print(listTodo.count)
-        
+   
         return cellHeights[indexPath.row]
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

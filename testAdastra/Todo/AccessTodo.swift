@@ -26,7 +26,7 @@ public class AccessTodo {
         let fetchRequest:NSFetchRequest<Todo> = Todo.fetchRequest()
             do {
                 listTodos = try context.fetch(fetchRequest)
-                print ("num of results = \(listTodos.count)")
+              
             
               
            
@@ -36,8 +36,6 @@ public class AccessTodo {
       
        
         
-           // fetchRequest.entity = entityTodo
-            // var  menu = NSManagedObject(entity: entity!, insertInto: context)
             
         
         
@@ -84,7 +82,7 @@ public class AccessTodo {
             
             let hour = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
-            print("hours = \(hour):\(minutes):\(day)")
+           
             todo.date = " \(dayNumber) \(month)"
             todo.dateComplete = date
             

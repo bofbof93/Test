@@ -55,7 +55,7 @@ class AddCategoryViewController: UIViewController {
         }
         
         
-        print("red : \(colors[0]*255) green : \(colors[1]*255) blue : \(colors[2]*255)")
+     
         }else{
             let popup = PopupDialog(title: "Name empty !", message: "Please fill the name of the Todo")
             

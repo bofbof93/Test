@@ -41,22 +41,6 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
             deleteButton.isHidden = false
         }
      
-//        todo = Todo(context: getContext())
-//        if(todo.name != nil){
-//            self.nameTodo.text = todo.name!
-//        }
-//        if(todo.category != nil){
-//            self.categoryPicker.selectRow(1, inComponent: 0, animated: true)
-//        }
-//        if(todo.dateComplete != nil){
-//            var date : Date = Date()
-//            let f = DateFormatter()
-//            print("date \(todo.dateComplete)")
-//            print("\(f.date(from: todo.dateComplete!))")
-//            date = f.date(from: todo.dateComplete!)!
-//            self.datePicker.setDate(date, animated: true)
-//        }
-//
         if(name != ""){
             self.nameTodo.text = name
         }
@@ -78,7 +62,7 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
             if(self.searchForCategory(string: category) != -1){
                 let index = self.searchForCategory(string: category)
                 self.categoryPicker.selectRow(index, inComponent: 0, animated: true)
-                print("ekfjkefj \(Utils.parseColor(string: listCategories[index].color!))")
+               
                 self.headerView.backgroundColor = Utils.parseColor(string: listCategories[index].color!)
             }
         }
@@ -116,7 +100,7 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
     }
  
     @IBAction func doneAction(_ sender: Any) {
-        print("\(self.datePicker.date)")
+       
         
         if(fromEdit){
             self.accessTodo.updateTodo(objectId: self.objectID, name: self.nameTodo.text!, date: self.datePicker.date, category: self.listCategories[self.categoryPicker.selectedRow(inComponent: 0)])
@@ -138,7 +122,7 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
         
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        print("hours = \(hour):\(minutes):\(day)")
+      
         newTodo.date = " \(dayNumber) \(month)"
         newTodo.dateComplete = date
         
@@ -205,7 +189,7 @@ class AddTodoViewController: UIViewController , UIPickerViewDelegate , UIPickerV
             
             if(category.name == string){
                 
-                print(i)
+                
                 return i
             }
             i = i+1

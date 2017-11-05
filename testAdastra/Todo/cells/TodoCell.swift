@@ -51,7 +51,7 @@ class TodoCell: FoldingCell {
     @IBAction func editAction(_ sender: Any) {
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let destination : AddTodoViewController = storyboard.instantiateViewController(withIdentifier: "AddTodoViewController") as! AddTodoViewController
-      //  destination.todo = todo
+     
         destination.name = todo.name!
         destination.category = (todo.category?.name)!
         destination.fromEdit = true
