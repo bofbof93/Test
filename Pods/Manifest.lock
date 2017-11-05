@@ -1,0 +1,15 @@
+PODS:
+  - FoldingCell (2.1.3)
+  - PopupDialog (0.5.4)
+
+DEPENDENCIES:
+  - FoldingCell
+  - PopupDialog
+
+SPEC CHECKSUMS:
+  FoldingCell: f3073f8b24cf20866a35198f31e3b67aea64e96e
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+
+PODFILE CHECKSUM: ec2c8b04901abee3c11f80a7a1c7df5756af38e1
+
+COCOAPODS: 1.3.1
