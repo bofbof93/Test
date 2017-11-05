@@ -249,8 +249,7 @@ extension TodoTableViewController {
             tableView.reloadData()
         }else{
             let index = sender.tag-200
-            print(index)
-            print(self.listTodoDeleted.count)
+         
             self.accessTodo.deleteTodo(todo: self.listTodoDeleted[index])
             self.listTodoDeleted.remove(at: index)
             self.tableView.reloadData()
